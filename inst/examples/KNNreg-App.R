@@ -4,7 +4,7 @@ library(ggplot2)
 # compile Rcpp code once at startup
 Rcpp::sourceCpp("src/knn_pred.cpp")
 
-# load our formula‐interface S3 model
+# load R functions
 source("R/knn_functions.R")
 
 # fixed split function

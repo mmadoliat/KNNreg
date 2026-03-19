@@ -1,4 +1,9 @@
 library(microbenchmark)
+# compile Rcpp code once at startup
+Rcpp::sourceCpp("src/knn_pred.cpp")
+
+# load R functions
+source("R/knn_functions.R")
 
 set.seed(42)
 n <- 1000; p <- 5; m <- 200; k <- 10
