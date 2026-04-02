@@ -1,3 +1,33 @@
+#' k-Nearest Neighbors Prediction
+#'
+#' Computes predictions for a set of test observations using the k-nearest neighbors (kNN) algorithm.
+#' The function supports both an R implementation and a C++ backend (`knn_pred_cpp`) for faster computation.
+#'
+#' @param train_x A numeric matrix or data frame of training predictors (features), with rows as observations and columns as variables.
+#' @param train_y A numeric vector of training responses (target values).
+#' @param test_x A numeric matrix or data frame of test predictors to make predictions for.
+#' @param k An integer specifying the number of nearest neighbors to use.
+#' @param method A character string specifying the implementation method. `"cpp"` (default) uses the C++ backend (`knn_pred_cpp`), otherwise the pure R implementation is used.
+#'
+#' @return A list with two components:
+#' \describe{
+#'   \item{preds}{A numeric vector of predicted values for each test observation.}
+#'   \item{ids}{A numeric vector containing the indices of the k nearest neighbors for each test observation.}
+#' }
+#'
+#' @examples
+#' # Example with random data
+#' set.seed(123)
+#' train_x <- matrix(rnorm(50), nrow = 10)
+#' train_y <- rnorm(10)
+#' test_x <- matrix(rnorm(20), nrow = 4)
+#' k <- 3
+#' result <- knn_pred(train_x, train_y, test_x, k)
+#' result$preds
+#' result$ids
+#'
+#' @export
+
 knn_pred <- function(train_x, train_y, test_x, k, method = "cpp") {
   # Coerce types
   train_x <- as.matrix(train_x)
