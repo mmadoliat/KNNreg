@@ -1,11 +1,15 @@
 Package: KNNreg
 Type: Package
-Title: Concise Summary of What the Package Does
+Title: k-Nearest Neighbors Regression with Shiny App
 Version: 0.0.1
 Date: 2026-03-19
-Authors@R: person("Your", "Name", role = c("aut", "cre"), email = "your@email.com")
-Description: More about what it does (maybe more than one line).
+Authors@R: c(
+    person("Mehdi", "Maadooliat", role = c("aut")),
+    person("Jaihee", "Choi", role = c("aut")),
+    person("Daniel", "Cirkovic", role = c("aut"))
+)
+Description: kNN regression functions and an interactive Shiny app.
 License: GPL (>= 2)
-Imports: Rcpp (>= 1.1.1)
+Imports: Rcpp (>= 1.1.1), shiny, ggplot2
 LinkingTo: Rcpp
 RoxygenNote: 7.3.3
