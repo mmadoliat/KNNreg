@@ -3,7 +3,7 @@
 #' Opens an interactive k-NN regression explorer.
 #'
 #' @importFrom shiny runApp
-#' @importFrom ggplot2 ggplot aes geom_point geom_line theme labs
+#' @import ggplot2
 #' @export
 run_knn_app <- function() {
   app_path <- system.file("shiny/knn_app", package = "KNNreg")
