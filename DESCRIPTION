@@ -4,7 +4,7 @@ Title: k-Nearest Neighbors Regression with Shiny App
 Version: 0.0.1
 Date: 2026-03-19
 Authors@R: c(person("Daniel", "Cirkovic", role = c("aut")), person("Jaihee", "Choi", role = c("aut")), person("Mehdi", "Maadooliat", role = c("aut", "cre"), email = "mehdi.maadooliat@marquette.edu"))
-Description: More about what it does (maybe more than one line).
+Description: kNN regression functions and an interactive Shiny app.
 License: GPL (>= 2)
 Imports: Rcpp (>= 1.1.1), shiny, ggplot2
 LinkingTo: Rcpp
