@@ -1,3 +1,7 @@
+#' @useDynLib KNNreg, .registration = TRUE
+#' @importFrom Rcpp evalCpp
+NULL
+
 #' k-Nearest Neighbors Prediction
 #'
 #' Computes predictions for a set of test observations using the k-nearest neighbors (kNN) algorithm.
