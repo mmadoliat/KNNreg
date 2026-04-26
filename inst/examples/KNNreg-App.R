@@ -1,11 +1,6 @@
 library(shiny)
 library(Rcpp)
 library(ggplot2)
-# compile Rcpp code once at startup
-Rcpp::sourceCpp("src/knn_pred.cpp")
-
-# load R functions
-source("R/knn_functions.R")
 
 # fixed split function
 make_split <- function(data, prop = 0.7) {
