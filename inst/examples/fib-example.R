@@ -1,3 +1,8 @@
+rec_fib_r <- function(n) {
+  if (n < 2) return(n)
+  return(rec_fib_r(n - 1) + rec_fib_r(n - 2))
+}
+
 # Iterative Fibonacci in R (more efficient than recursive)
 fib_r <- function(n) {
   if (n <= 1) return(n)
@@ -12,30 +17,15 @@ fib_r <- function(n) {
 }
 
 library(Rcpp)
+sourceCpp("./inst/examples/fib-helper.cpp")
 
-cppFunction('
-int fib_cpp(int n) {
-  if (n <= 1) return n;
-  int a = 0, b = 1, temp;
-  for (int i = 2; i <= n; ++i) {
-    temp = b;
-    b = a + b;
-    a = temp;
-  }
-  return b;
-}
-')
+library(rbenchmark)
+benchmark(rec_fib_r(15), rec_fib_r(20), rec_fib_r(25))[, 1:4]
+benchmark(rec_fib_r(25), rec_fib_cpp(25))[, 1:4]
+
+benchmark(fib_cpp(25), fib_r(25), rec_fib_cpp(25), rec_fib_r(25))[, 1:4]
+
 
 library(microbenchmark)
-
-microbenchmark(
-  R = fib_r(30),
-  Rcpp = fib_cpp(30),
-  times = 100L
-)
-
-microbenchmark(
-  R = fib_r(30000),
-  Rcpp = fib_cpp(30000),
-  times = 1000L
-)
+microbenchmark(R = fib_r(47), Rcpp = fib_cpp(47), times = 100L)
+microbenchmark(R = fib_r(92), Rcpp = fib_cpp(92), times = 100L)
