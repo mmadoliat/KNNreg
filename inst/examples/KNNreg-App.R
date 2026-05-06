@@ -1,4 +1,5 @@
 library(shiny)
+library(KNNreg)
 library(Rcpp)
 library(ggplot2)
 
